@@ -109,11 +109,6 @@ novel-agent/
 │   ├── types.ts               # 类型定义
 │   ├── index.ts               # 模块导出
 │   └── cli.ts                 # CLI 交互界面
-├── data/
-│   ├── project.json           # 项目配置模板
-│   ├── outline.json           # 大纲数据（自动生成）
-│   ├── chapters/              # 章节文件
-│   └── references/            # 网文分析参考资料
 ├── package.json
 ├── tsconfig.json
 └── .env.example

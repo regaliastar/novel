@@ -4,7 +4,7 @@
 
 import { createLLM, getAuthorModelConfig } from "../config/llm.js";
 import { AUTHOR_SYSTEM_PROMPT } from "./prompts.js";
-import { authorTools } from "../skills/all-tools.js";
+import { authorTools } from "../skills/index.js";
 import { HumanMessage } from "@langchain/core/messages";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { createToolCallbackHandler, getProjectContext } from "../utils/common.js";

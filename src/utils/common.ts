@@ -4,7 +4,7 @@
 
 import { BaseCallbackHandler } from "@langchain/core/callbacks/base";
 import type { Serialized } from "@langchain/core/load/serializable";
-import { getActiveProject, loadOutline } from "./project-manager.js";
+import { getActiveProject, loadOutline } from "./project/index.js";
 
 // ==========================================
 //  ANSI 颜色常量

@@ -13,7 +13,7 @@ import {
 import { createLLM, getEditorModelConfig } from "../config/llm.js";
 import { ROUTER_SYSTEM_PROMPT } from "../agents/prompts.js";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
-import { loadOutline } from "../utils/project-manager.js";
+import { loadOutline } from "../utils/project/index.js";
 import { createToolCallbackHandler } from "../utils/common.js";
 import type { NovelGraphState, AgentMessage } from "../types.js";
 

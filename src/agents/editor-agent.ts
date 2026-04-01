@@ -4,7 +4,7 @@
 
 import { createLLM, getEditorModelConfig } from "../config/llm.js";
 import { EDITOR_SYSTEM_PROMPT } from "./prompts.js";
-import { editorTools } from "../skills/all-tools.js";
+import { editorTools } from "../skills/index.js";
 import { HumanMessage } from "@langchain/core/messages";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { createToolCallbackHandler, getProjectContext } from "../utils/common.js";
