@@ -1,0 +1,53 @@
+{
+  "title": "魔女之剑",
+  "genre": "奇幻",
+  "synopsis": "一个异世界转世到剑与魔法世界的故事，背景是欧洲中世纪。男性向、后宫、魔女、勇者、领主、地下城、魔王、日常轻松向",
+  "targetWordCount": 1000000,
+  "outline": {
+    "id": "node_1774947446476_root",
+    "title": "魔女之剑",
+    "summary": "在此填写小说总体概要",
+    "keyEvents": [],
+    "characters": [],
+    "children": [
+      {
+        "id": "node_1774947446476_v1",
+        "title": "第一卷",
+        "summary": "",
+        "keyEvents": [],
+        "characters": [],
+        "status": "draft",
+        "children": [
+          {
+            "id": "node_1774947446476_c1",
+            "title": "第一章",
+            "summary": "",
+            "keyEvents": [],
+            "characters": [],
+            "status": "draft",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "status": "draft"
+  },
+  "characters": [],
+  "worldBuilding": {
+    "name": "",
+    "era": "",
+    "geography": "",
+    "factions": [],
+    "rules": [],
+    "lore": ""
+  },
+  "styleGuide": {
+    "tone": "",
+    "pov": "第三人称限知视角",
+    "pacing": "",
+    "vocabulary": "",
+    "influences": [],
+    "taboos": [],
+    "customRules": []
+  }
+}
