@@ -1,5 +1,5 @@
 import { colors, colorize } from "../common.js";
-import type { NovelGraphState } from "../../types.js";
+import type { NovelGraphState, ChatHistoryItem } from "../../types.js";
 import type { CompiledStateGraph } from "@langchain/langgraph";
 import { getIntentLabel, getNextThought } from "../constants.js";
 
@@ -39,12 +39,22 @@ export function printThought(text: string): void {
   console.log(clr(`  · ${text}`, colors.dim));
 }
 
+let chatHistory: ChatHistoryItem[] = [];
+
+export function getChatHistory(): ChatHistoryItem[] {
+  return chatHistory;
+}
+
+export function clearChatHistory(): void {
+  chatHistory = [];
+}
+
 export async function runGraphWithStreaming(
   graph: CompiledStateGraph<NovelGraphState, Partial<NovelGraphState>, string>,
   userInput: string
-): Promise<void> {
+): Promise<NovelGraphState["intent"]> {
   const stream = await graph.stream(
-    { userInput, messages: [] },
+    { userInput, messages: [], chatHistory },
     { streamMode: "updates" }
   );
 
@@ -76,6 +86,10 @@ export async function runGraphWithStreaming(
         revisionCount = update.revisionCount;
       }
 
+      if (update.chatHistory && update.chatHistory.length > 0) {
+        chatHistory = [...chatHistory, ...update.chatHistory];
+      }
+
       if (nodeName === "author") {
         printThought(`作者已完成第 ${revisionCount} 版草稿，正在交给编辑审阅`);
       }
@@ -92,11 +106,15 @@ export async function runGraphWithStreaming(
         printThought("大纲操作已完成，正在整理输出");
       }
 
-      if (nodeName === "editor_inspire") {
+      if (nodeName === "settings_ops") {
+        printThought("设定操作已完成，正在整理输出");
+      }
+
+      if (nodeName === "inspire_ops") {
         printThought("灵感建议已生成，正在流式输出");
       }
 
-      if (nodeName === "editor_read_novel") {
+      if (nodeName === "read_novel_ops") {
         printThought("小说分析已完成，正在流式输出");
       }
 
@@ -121,7 +139,7 @@ export async function runGraphWithStreaming(
     }
   }
 
-  if (!finalRendered && latestError) return;
+  if (!finalRendered && latestError) return currentIntent;
 
   if (
     (currentIntent === "write" || currentIntent === "adjust") &&
@@ -129,4 +147,6 @@ export async function runGraphWithStreaming(
   ) {
     console.log(clr(`\n📊 经过 ${revisionCount} 轮写作/审阅`, colors.dim));
   }
+
+  return currentIntent;
 }

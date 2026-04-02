@@ -9,6 +9,7 @@ export const intentLabels: Record<string, string> = {
   write: "✍️  写作",
   adjust: "🔧 调整",
   outline: "📋 大纲",
+  settings: "⚙️  设定",
   inspire: "💡 灵感",
   read_novel: "📖 阅读分析",
   chat: "💬 对话",
@@ -27,6 +28,8 @@ export function getNextThought(intent: NovelGraphState["intent"]): string {
       return "正在读取相关内容和编辑意见，准备修改文本";
     case "outline":
       return "正在检查当前大纲并准备执行大纲操作";
+    case "settings":
+      return "正在读取当前设定并准备执行设定操作";
     case "inspire":
       return "正在读取大纲和前文，准备生成灵感建议";
     case "read_novel":

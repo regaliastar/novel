@@ -93,6 +93,7 @@ export interface NovelGraphState {
     | "write"
     | "adjust"
     | "outline"
+    | "settings"
     | "inspire"
     | "read_novel"
     | "chat"
@@ -117,4 +118,13 @@ export interface NovelGraphState {
   finalOutput: string | null;
   // 错误信息
   error: string | null;
+  // chat模式的历史消息（用于跨轮次记忆）
+  chatHistory: ChatHistoryItem[];
+}
+
+/** Chat历史消息项 */
+export interface ChatHistoryItem {
+  role: "user" | "assistant";
+  content: string;
+  timestamp: string;
 }
