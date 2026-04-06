@@ -1,6 +1,6 @@
 # Novel Agent 🖊️
 
-> 基于 LangGraph.js 的多 Agent 小说创作系统
+> 基于 LangGraph 的多 Agent 小说创作系统
 
 ## 特性
 
@@ -48,14 +48,6 @@ AUTHOR_MODEL_PROVIDER=deepseek
 AUTHOR_MODEL_NAME=deepseek-chat
 AUTHOR_API_KEY=your-api-key
 AUTHOR_BASE_URL=https://api.deepseek.com
-```
-
-**或使用通义千问：**
-```env
-AUTHOR_MODEL_PROVIDER=openai
-AUTHOR_MODEL_NAME=qwen-max
-AUTHOR_API_KEY=your-dashscope-key
-AUTHOR_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ```
 
 ### 3. 启动
